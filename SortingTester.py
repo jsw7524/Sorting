@@ -1,6 +1,10 @@
 import random
 import time
-
+from  BubbleSort import bubbleSort
+from HeapSort import heapSort
+from  InsertSort import insertSort
+from QuickSort import quickSort
+from SelectionSort import selectionSort
 class SortingTester:
     def __init__(self, sorting_algorithm, seed=7524):
         self.sorting_algorithm = sorting_algorithm
@@ -46,20 +50,30 @@ class SortingTester:
                 test_cases.append((input_list, expected_output))
         return test_cases
 
-
-
-import bubble_sort
 if __name__ == "__main__":
 
-    #num_cases=5
-    #size=3000
-    #test_cases = SortingTester.make_multiple_test_cases(num_cases, size)
+    num_cases=20
+    size=4000
+    test_cases = SortingTester.make_multiple_test_cases(num_cases, size)
     # save test cases to a file
-    #SortingTester.Save_test_cases_to_file(test_cases, "test_cases.txt")
+    SortingTester.Save_test_cases_to_file(test_cases, "test_cases.txt")
 
-    bubbleSort = SortingTester(bubble_sort.bubble_sort)
-    bubbleSort.test_sorting_algorithm(SortingTester.Load_test_cases_from_file("test_cases.txt"))
+    print("Bubble Sort Testing:")
+    SortingTester(bubbleSort).test_sorting_algorithm(SortingTester.Load_test_cases_from_file("test_cases.txt"))
+    print("")
 
-    
+    print("Insert Sort Testing:")
+    SortingTester(insertSort).test_sorting_algorithm(SortingTester.Load_test_cases_from_file("test_cases.txt"))
+    print("")
 
+    print("Selection Sort Testing:")
+    SortingTester(selectionSort).test_sorting_algorithm(SortingTester.Load_test_cases_from_file("test_cases.txt"))
+    print("")
 
+    print("Heap Sort Testing:")
+    SortingTester(heapSort).test_sorting_algorithm(SortingTester.Load_test_cases_from_file("test_cases.txt"))
+    print("")
+
+    print("Quick Sort Testing:")
+    SortingTester(quickSort).test_sorting_algorithm(SortingTester.Load_test_cases_from_file("test_cases.txt"))
+    print("")
