@@ -57,8 +57,9 @@ if __name__ == "__main__":
     # save test cases to a file
     #SortingTester.Save_test_cases_to_file(test_cases, "test_cases.txt")
 
-    test_cases = SortingTester.Load_test_cases_from_file("test_cases.txt")
     bubbleSort = SortingTester(bubble_sort.bubble_sort)
-    bubbleSort.test_sorting_algorithm(test_cases)
+    bubbleSort.test_sorting_algorithm(SortingTester.Load_test_cases_from_file("test_cases.txt"))
+
+    
 
 
